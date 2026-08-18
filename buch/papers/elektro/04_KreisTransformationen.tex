@@ -11,13 +11,13 @@
 \label{elektro:section:KreisTrafo}}
 \kopfrechts{Kreis Transformationen}
 
-Im Abschnitt \ref{elektro:section:RiemannSatz} wurden die Voraussetzungen für die Anwendung des Riemannschen Abbildungssatzes beschrieben.
+Im Abschnitt \ref{elektro:section:RiemannSatz} wurden die Voraussetzungen für die Anwendung des riemannschen Abbildungssatzes beschrieben.
 Dabei wurde erwähnt, dass es keine allgemeine Formel für die Abbildung von beliebigen Gebieten auf den Einheitskreis gibt.
 Daher suchen wir nach einer Methode, die uns erlaubt, die Abbildung für beliebige Gebiete zu finden, damit wir die Feldberechnugnen vereinfachen können.
 
 Unser Ziel ist es bekanntlich, Berechnungen anhand des Einheitskreises durchzuführen, da wir dort die Feldgleichungen bereits kennen. 
-(Siehe Gleichung \ref{elektro:equation:potential} und \ref{elektro:equation:efeld}).
-Für eine solche Transformation gibt es mathematisch mehrere Ansätze die zu einer Lösung führen.
+(Siehe Gleichung \eqref{elektro:equation:potential} und \eqref{elektro:equation:efeld}).
+Für eine solche Transformation gibt es mathematisch mehrere Ansätze, die zu einer Lösung führen.
 Es wird hier über das Schwarz-Christoffel-Verfahren und über den numerischen Ansatz berichtet, der auf der Finite-Elemente-Methode basiert.
 \textcolor{red}{Quelle}
 
@@ -28,7 +28,7 @@ Es wird hier über das Schwarz-Christoffel-Verfahren und über den numerischen A
 Die Schwarz-Christoffel-Transformation ist ein Verfahren, um den Einheitskreis auf ein Polygon abzubilden. 
 Es geht darum, den Rand des Einheitskreises auf den Rand des Polygons abzubilden, sodass die Abbildung konform ist $f: D \rightarrow P $.
 Wenn der Einheitskreis $D = {w \in C ; \vert w \vert < 1}$ ist, dann ist der Rand des Einheitskreises $\vert w \vert = 1$, die Bedingung wird nun verwendet um Punkte auf dem Rand des Einheitskreises festzulegen, die auf die Ecken des Polygons abgebildet werden.
-Die Punkte auf dem Einheitskreis, die so genannten \textbf{Prevertices}, werden als $w_1, w_2, ..., w_n$ bezeichnet, dabei gilt: $\vert w_n \vert = 1$.
+Die Punkte auf dem Einheitskreis, die so genannten \emph{Prevertices}, werden als $w_1, w_2, ..., w_n$ bezeichnet, dabei gilt: $\vert w_n \vert = 1$.
 Die Prevertices werden als komplexe Zeiger dargestellt, $w_k = e^{\i \theta_k} $.
 Die Ecken des Polygons werden als $z_1, z_2, ..., z_n$ bezeichnet.
 Und jetzt wird die Funktion $f(w_n) = z_n$ gesucht, welche die $w_n$ auf die $z_n$ abbildet. \textcolor{red}{Laufvariable k oder n ?}
@@ -36,7 +36,7 @@ Die Konstruktion beruht auf den bekannten Innenwinkeln der Ecken des Polygons, d
 
 Als erster Schritt in der Berechnung wird nun die Ableitung der Schwarz-Christoffel Formel verwendet, da vorerst nur die Richtungsänderung an den Ecken des Polygons von Bedeutung ist. 
 \begin{equation}
-	f'(w) = C \prod_{k=1}^{n}(1-\frac{w}{w_k})^{\alpha_k-1}
+	f'(w) = C \prod_{k=1}^{n} \biggl(1-\frac{w}{w_k}\biggr)^{\alpha_k-1}
 	\label{elektro:equation:SchwarzChristoffelDerivative}
 \end{equation}
 C ist eine Kostante, die später bestimmt wird und $\alpha_k$ ist bereits bekannt.
