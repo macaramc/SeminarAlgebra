@@ -23,7 +23,7 @@ Es wird hier über das Schwarz-Christoffel-Verfahren und über den numerischen A
 
 % Hier wird der Ansatz über die Schwarz-Christoffel-Transformationen vorgestellt, die auf einem approximativen Integrationsverfahren basiert.
 
-\section{Schwarz-Christoffel-Transformation
+\subsection{Schwarz-Christoffel-Transformation
 \label{elektro:section:SchwarzChristoffel}}
 Die Schwarz-Christoffel-Transformation ist ein Verfahren, um den Einheitskreis auf ein Polygon abzubilden. 
 Es geht darum, den Rand des Einheitskreises auf den Rand des Polygons abzubilden, sodass die Abbildung konform ist $f: D \rightarrow P $.
@@ -70,9 +70,74 @@ Was bedeuten die dazugekommenen Faktoren in der Gleichung \ref{elektro:equation:
 
 Um das Beschriebene zu veranschaulichen sind in Abbildung \ref{elektro:figure:SchwarzChristoffel_erklaerung} die Prevertices $w_n$, die Ecken des Polygons $z_n$ und die Winkel $\alpha_k$ eingezeichnet.
 
+//TODO: Aussenwinkel korrigieren
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.9\textwidth]{papers/elektro/grafik/SC_trafo_erklaerung.png}
 	\caption{Prevertices, Ecken und $\alpha_{k}$ abgebildet}
 	\label{elektro:figure:SchwarzChristoffel_erklaerung}
+\end{figure}
+
+
+
+% \subsection{MATLAB Toolbox für Schwarz-Christoffel-Transformationen}
+% \label{papers:elektro:subsection:sc-toolbox}
+
+
+\subsection{Beispiel: Dreiech auf Kreis}
+Ein Dreieckige kontour eines ladungsbehafteten Objektes kann als einfaches beispiel vieler Effekte der Transformation zeigen.
+Mit der Schwarz-Christoffel Trassformation kann nun der Einheitskreis so transoformiert werden dass desen Rand die Form unseres Dreiecks annimt.
+Und damit ein Feld berechnet werden kann das exakt die Form des Dreiecks hat.
+Für die Berehcnung der prevertices und alle anderen Paramerter wird das MATLAB Tool benutz das in Abbschnit \ref{papers:elektro:subsection:sc-toolbox} beschirben wurde. \textcolor{red}{ist die beschreibeung des Tools überhaupt nötig ?}
+Danach wird die Transformation angewendet und damit kommt das Feld so heraus wie in Abbildung \ref{elektro:figure:SC_triag_trafo} darestellt heraus.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\textwidth]{papers/elektro/grafik/SC_trafo_triag.png}
+	\caption{Schwarz-CHristoffel transfomriertes Polygon auf das innere des Einheitskreises}
+	\label{elektro:figure:SC_triag_trafo}
+\end{figure}
+
+Auf der Abbilung \ref{elektro:figure:SC_triag_trafo} ist zu sehen wie die Feldlinien auf der Oberfläche des Dreiecks senkrecht aufkommen und sich im Raum ausbreiten und dabei auch die Potentiallinen immer senkrecht kreuzen.
+Es sind auch die Prevertices auf dem Einheitskreis eingezeichnet die die Punkte markieren die exakt auf die Ecken des Dreiecks transfomiert werden, die farben zeigen welcher punkt auf welche Ecke transformiert wird. 
+Dabei fällt auf, dass die Prevertices nicht intuitiv in der selben Richtung wie die Ecken des Dreiecks angeordnet sind, sondern in entgegengesetzten richtungen. 
+Die ist auf eine Regel zurpckzuführen die besagt dass die Fläche die bearbeitet wird, im matematischen sinne, immer auf der linken Seite der Kurve liegen muss.
+Dies kann so vorgestellt werdem: wenn die laufvariabel des Integrals sich auf der Kurve fortbewegt muss die Fläche die bearbeitet wird immer auf der linken Seite liegen.
+Die Verlaufsrichtuung wird also immer so gewählt, dass dies Wahr ist.
+Mit einem krleinen Gedanklichen experiment kann nun festgestellt werden dass die Verlaufsrichtung auf dem dreieck im Uhrzeigersinn sein muss und beim Einheitskreis gegen den Uhhrzeigersinn.
+
+
+Als etwas komplexere Geometrie mit Mehreren Ecken darunter auch welche die einen grösseren Innewinkel als $180^{\circ}$ haben, wird ein Hufeisenförmiges Polygon gezeigt.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/SC_trafo_huf.png}
+	\caption{Schwarz-CHristoffel transfomriertes Polygon auf das innere des Einheitskreises}
+	\label{elektro:figure:SC_huf_trafo}
+\end{figure}
+
+In den Beiden bereits besprochenne Beispielen ist das folgende auch schon zu sehen aber hier kommt noch ein etwas anschaulicheres Beispie, in Abbildung \ref{elektro:figure:SC_star_trafo} sind drei verschiedene Winkel zu finden, die alle eine andere konzentration an Feldlinen aufweisen die senkrecht dort wufkomen.
+Bei spitzen winkkeln ist zu sehen das die Feldlinen näher beieinander sind und bei den stumpferen oder sogar überstumpfen Winkeln ist zu sehen dass die Feldlinen weiter auseinander liegen.
+Dies ist auf die Ladungsverteilung zurückzuführen die sich auf dem Objekt verteilt.
+Bei spitzeren winkeln hat es weniger platz zwischen den ebieden Kanten und LAdungsträger drücken die vor ihnen liegenden Ladungsträger näher zusammen, was zu einer höheren Ladungsdichte an den spitzen führt.
+Bei den stumpferen Winkeln ist es genau umgekehrt, dort hat es mehr Platz und die Ladungsträger können sich weiter auseinander verteilen, da dies sowieso das ist was ladungsträger mit gleicher polarität am liebsten tun. 
+Genau wie die E-Feldlinen die sich gegenseitig abstossen und sich so weit wie möglich voneinander entfernen.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/SC_trafo_star.png}
+	\caption{Sternförmige Kontour mit verschiedenen Innenwinkeln}
+	\label{elektro:figure:SC_star_trafo}
+\end{figure}
+
+Diese Spitzeneffekte sind nicht auf die Elektrostatik beschränkt sondern kommen in allen Bereichen der Physik vor.
+In der Mechanik ist es das gleiche Prinzip, dass sich Kräfte an den Spitzen von Objekten konzentrieren und dort zu einer höheren Belastung führen.
+In Abbildung \ref{elektro:figure:mech_triag} ist ein Beispiel zu sehen wie sich die Kräfte an den Spitzen eines Dreiecks konzentrieren.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.9\linewidth]{papers/elektro/grafik/mech_triag.png}
+	\caption{Kraftkonzentration an den Spitzen eines Dreiecks}
+	\cite[Bild Quelle]{elektro:mech_triag}
+	\label{elektro:figure:mech_triag}
 \end{figure}
