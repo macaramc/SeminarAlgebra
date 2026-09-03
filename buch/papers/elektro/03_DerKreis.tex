@@ -87,6 +87,89 @@ Es muss konsistent in zylindrischen Koordinaten gearbeitet werden, damit die Abl
 
 Hiermit ist gezeigt, dass die Integrale in einem Kreislauf miteinander verbunden sind und von einem zum anderen geschlossen werden kann.
 
+\subsubsection{Komplexe Darstellung}
+Die formeln können nun noch für Komplexe Zahlen tauglich gemacht werden indem der Vektor $\vec{r}$ in Kartesisschen Koordinaten dargestellt wird und danach die Feldanteile Komplex geschrieben werden.
+//TODO: nochmals drübergehen bezüglich der Schreibweise und der Herleitung.
+
+\begin{equation}
+\begin{aligned}
+    \vec{E}
+    &=
+    \frac{\rho}{2\pi\varepsilon_0 r}\hat{r}
+    \\[2mm]
+    &=
+    \frac{\rho}{2\pi\varepsilon_0 r}
+    \left(
+    \frac{x}{r}\hat{x}
+    +
+    \frac{y}{r}\hat{y}
+    \right)
+    \\[2mm]
+    &=
+    \frac{\rho}{2\pi\varepsilon_0}
+    \left(
+    \frac{x}{r^2}\hat{x}
+    +
+    \frac{y}{r^2}\hat{y}
+    \right)
+    \\[2mm]
+    &=
+    \frac{\rho}{2\pi\varepsilon_0}
+    \left(
+    \frac{x}{x^2+y^2}\hat{x}
+    +
+    \frac{y}{x^2+y^2}\hat{y}
+    \right).
+\end{aligned}
+\end{equation}
+Damit ergeben sich die Feldanteile in $x$- und $y$-Richtung zu:
+
+\begin{equation}
+    E_x=
+    \frac{\rho}{2\pi\varepsilon_0}
+    \frac{x}{x^2+y^2}
+    \quad\text{und}\quad
+    E_y=
+    \frac{\rho}{2\pi\varepsilon_0}
+    \frac{y}{x^2+y^2}
+\end{equation}
+
+mit 
+\begin{equation}
+    \mathcal{E}(z)=E_x-iE_y
+\end{equation}
+wird nun das Feld Komplex geschriebn
+\begin{equation}
+    \mathcal{E}(z)
+    =
+    \frac{\rho}{2\pi\varepsilon_0}
+    \frac{x-iy}{x^2+y^2}
+\end{equation}
+Eine Komplexe Zahl ist bekanntlich definiert als $z = x + iy$.
+
+\begin{equation}
+\begin{aligned}
+    \frac{1}{z}
+    &=
+    \frac{1}{x+iy}
+    \\[2mm]
+    &=
+    \frac{x-iy}{(x+iy)(x-iy)}
+    \\[2mm]
+    &=
+    \frac{x-iy}{x^2+y^2}.
+\end{aligned}
+\end{equation}
+Wird damit die Formel für $\mathcal{E}(z)$ umgeschrieben, so ergibt sich:
+\begin{equation}
+    \boxed{
+    \mathcal{E}(z)
+    =
+    \frac{\rho}{2\pi\varepsilon_0}
+    \frac{1}{z}
+    }
+\end{equation}
+
 
 % \subsection{Cayley-Transformation
 % \label{elektro:subsection:Cayley}}
